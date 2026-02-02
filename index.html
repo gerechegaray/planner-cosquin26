@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Cosquín Rock 2026 – Mi Planner</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Oswald:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="header">
+    <h1 class="logo">Cosquín Rock <span class="year">2026</span></h1>
+    <p class="tagline">Armá tu cronograma y descargalo para tenerlo a mano sin conexión</p>
+  </header>
+
+  <nav class="tabs">
+    <button type="button" class="tab active" data-tab="cronograma">Mi cronograma</button>
+    <button type="button" class="tab" data-tab="mapa">Mapa</button>
+  </nav>
+
+  <main class="main">
+    <!-- Pestaña Cronograma -->
+    <section id="cronograma" class="panel active">
+      <div class="day-toggle">
+        <button type="button" class="day-btn active" data-day="1">Día 1</button>
+        <button type="button" class="day-btn" data-day="2">Día 2</button>
+      </div>
+
+      <div class="grid-layout">
+        <div class="selection-panel">
+          <h2>Marcá las bandas que quieras ver</h2>
+          <p class="duracion-nota duracion-nota-lista"><strong>Duración estimada: 50 min por artista.</strong> Solo se muestra hora de inicio.</p>
+          <div class="lista-options">
+            <span class="orden-label">Ordenar lista por:</span>
+            <button type="button" class="btn-orden-lista active" data-orden="escenario">Escenario</button>
+            <button type="button" class="btn-orden-lista" data-orden="horario">Horario</button>
+          </div>
+          <ul class="band-list" id="band-list"></ul>
+        </div>
+
+        <div class="cronograma-panel">
+          <h2>Tu cronograma</h2>
+          <p class="cronograma-hint">Siempre ordenado por horario.</p>
+          <p class="duracion-nota"><strong>Se estima una duración de 50 minutos por artista.</strong> Los horarios que ves son de inicio; los conflictos y “llega a tiempo” se calculan con 50 min por show.</p>
+          <div class="export-buttons">
+            <button type="button" class="btn-export" id="export-cronograma">Exportar mi cronograma (PDF)</button>
+            <span class="export-grilla-label">Grilla completa:</span>
+            <button type="button" class="btn-export" id="export-grilla-horario">Por horario (PDF)</button>
+            <button type="button" class="btn-export" id="export-grilla-escenario">Por escenario (PDF)</button>
+          </div>
+          <div class="cronograma-table-wrap">
+            <table class="cronograma-table">
+              <thead>
+                <tr>
+                  <th>Escenario</th>
+                  <th>Hora</th>
+                  <th>Banda</th>
+                  <th>Conflicto</th>
+                  <th>Recomendación</th>
+                </tr>
+              </thead>
+              <tbody id="cronograma-body"></tbody>
+            </table>
+          </div>
+          <p class="empty-cronograma" id="empty-cronograma">Marcá bandas con el checkbox para armar tu cronograma.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Pestaña Mapa -->
+    <section id="mapa" class="panel">
+      <div class="mapa-container">
+        <div class="mapa-upload">
+          <label class="upload-label">
+            <span class="upload-icon">📍</span>
+            <span>Adjuntá el mapa del predio</span>
+            <input type="file" id="mapa-file" accept="image/*" hidden>
+          </label>
+          <p class="upload-hint">PNG, JPG o WebP. Se guarda solo en este navegador.</p>
+        </div>
+        <div class="mapa-preview" id="mapa-preview">
+          <p class="mapa-placeholder">Tu mapa aparecerá acá al subir una imagen.</p>
+          <img id="mapa-img" alt="Mapa Cosquín Rock" style="display: none;">
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <p>Planner Cosquín Rock 2026 · Para organizarte con amigos</p>
+  </footer>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.5.31/jspdf.plugin.autotable.min.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
