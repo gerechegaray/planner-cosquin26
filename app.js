@@ -317,7 +317,7 @@
     y += 8;
     doc.setFontSize(9);
     doc.setTextColor(50, 50, 50);
-    doc.text('Se estima una duración de 50 minutos por artista. Los horarios son de inicio.', margen, y);
+    doc.text('Se estima duración de 50 minutos por artistas. El cálculo de conflictos y recomendación se calcula por duración estimada y distancia entre escenarios.', margen, y);
     y += 12;
 
     const head = [['Escenario', 'Hora', 'Banda', 'Conflicto', 'Recomendación']];
@@ -417,7 +417,7 @@
       y += 7;
       doc.setFontSize(9);
       doc.setTextColor(50, 50, 50);
-      doc.text('Se estima una duración de 50 minutos por artista. Los horarios son de inicio.', margen, y);
+      doc.text('Se estima duración de 50 minutos por artistas. El cálculo de conflictos y recomendación se calcula por duración estimada y distancia entre escenarios.', margen, y);
       doc.text('Orden: ' + (orden === 'horario' ? 'por horario' : 'por escenario') + '.', margen, y + 5);
       y += 18;
 
